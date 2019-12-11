@@ -1,0 +1,11 @@
+- press status : 언론상태
+
+- legal environment : 법률적
+	0:best	30:worst
+- political environment : 정치적
+	0:best	40:worst
+- economic environment : 경제적
+	0:best	30:worst
+
+- Press freedom score : 언론 자유 점수(총 합 점수)
+	0:best	100:worst
