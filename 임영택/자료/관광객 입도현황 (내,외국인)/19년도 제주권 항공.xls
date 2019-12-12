@@ -1,0 +1,80 @@
+
+
+
+
+
+
+
+				<table class="table table6 text-center b_b mb0">
+					<caption class="sr-only">공항별 통계 표에 대한 공항명, 운항, 여객, 화물의 정보가 있습니다.</caption>
+					<colgroup>
+						<col style="width:95px">
+						<col style="width:69px">
+						<col style="width:69px">
+						<col style="width:72px">
+						<col style="width:69px">
+						<col style="width:69px">
+						<col style="width:72px">
+						<col style="width:69px">
+						<col style="width:69px">
+						<col style="width:71px">
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col" rowspan="2">공항명</th>
+							<th scope="colgroup" colspan="3">운항(편수)</th>
+							<th scope="colgroup" colspan="3">여객(명)</th>
+							<th scope="colgroup" colspan="3">화물(ton)</th>
+						</tr>
+						<tr>
+							<th scope="col">도착</th>
+							<th scope="col">출발</th>
+							<th scope="col">계</th>
+							<th scope="col" class="bd-left">도착</th>
+							<th scope="col">출발</th>
+							<th scope="col">계</th>
+							<th scope="col" class="bd-left">도착</th>
+							<th scope="col">출발</th>
+							<th scope="col">계</th>
+						</tr>
+					</thead>
+					<tbody>
+					<!-- airportStatsList -->
+
+
+						<tr>
+							<th scope="row">제주</th>
+							<td>80,102</td>
+							<td>80,128</td>
+							<td>160,230</td>
+							<td class="bd-left">14,328,309</td>
+							<td>14,353,701</td>
+							<td>28,682,010</td>
+							<td class="bd-left">111,490.7</td>
+							<td>125,210.2</td>
+							<td>236,701
+							</td>
+						</tr>
+
+						</tbody>
+
+					
+					<tfoot>
+						<tr>
+							<th scope="row" class="text-center">합 계</th>
+							<td>80,102</td>
+							<td>80,128</td>
+							<td>160,230</td>
+							<td class="bd-left">14,328,309</td>
+							<td>14,353,701</td>
+							<td>28,682,010</td>
+							<td class="bd-left">111,490.7</td>
+							<td>125,210.2</td>
+							<td>236,701
+							</td>
+						</tr>
+						</tfoot>
+
+				</table>
+	<!-- END -->
+			
