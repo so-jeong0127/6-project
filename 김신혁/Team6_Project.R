@@ -17,6 +17,7 @@ library(xlsx)
 library(ggplot2)
 library(dplyr)
 
+
 setwd('D:/6-project/reference')
 
 chn_visited_jeju <- read.csv(file = "제주도 외국인 관광객 현황 2013-2018 line.csv",
@@ -30,8 +31,36 @@ plot(chn_visited_jeju$연도, chn_visited_jeju$중국.외.국가, main = '제주
 lines(chn_visited_jeju$연도, chn_visited_jeju$중국,
       col = 'red')
 
-# ggplot(data = chn_visited_jeju,
-#        aes( x = 연도,
-#             y = c(0,1000000,2000000,3000000) ) )+
-#   geom_line()
+
+
+
+
+pie <-read.csv("내,외국인 비교.csv",
+               header = T)
+pie[1,-1]
+group <- names(pie)[-1]
+group
+
+df2016 <- data.frame( group = c("내국인", "외국인"),
+                  value = c(12250259,3990826) )
+
+ggplot(df2016, aes(x="", y=value, fill=group))+
+  geom_bar(stat="identity", width = 1, color="white")+
+  coord_polar("y",start=0)+
+  theme_void()
+
+
+df2017 <- data.frame( group = c("내국인", "외국인"),
+                      value = c(13522632,1206814) )
+
+ggplot(df2017, aes(x="", y=value, fill=group))+
+  geom_bar(stat="identity", width = 1, color="white")+
+  coord_polar("y",start=0)+
+  theme_void()
+
+
+
+
+
+
 
