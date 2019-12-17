@@ -129,7 +129,6 @@ grid.arrange(
   ggplot(hotel3.df)+
     geom_bar(aes(x = X, y=value, fill = variable),
              position = "fill", stat = "identity" )+
-    ggtitle("숙박시설만족/여행유형별/시설이용편의성")+
-    theme(legend.title = element_blank(), legend.position = 'none'),
+    ggtitle("숙박시설만족/여행유형별/시설이용편의성"),
   nrow=1
 )
