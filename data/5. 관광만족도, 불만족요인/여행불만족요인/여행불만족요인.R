@@ -83,3 +83,11 @@ unliked.df <- melt( unliked[, c("X", "여행정보를.얻기.어렵다", "관광
 ggplot(unliked.df)+
   geom_bar(aes(x = X, y=value, fill = variable),
            position = "fill", stat = "identity" )
+
+
+
+
+### 통합
+unliked1 <- read.csv("여행불만족요인-성별.csv", header=T)
+unliked2 <- read.csv("여행불만족요인-성별.csv", header=T)
+unliked3 <- read.csv("여행불만족요인-성별.csv", header=T)
