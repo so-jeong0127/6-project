@@ -52,3 +52,42 @@ purpose.type.df <- melt( purpose.type[, c("X", "여가.위락.휴식", "신혼�
 ggplot(purpose.type.df)+
   geom_bar(aes(x=X, y=value, fill = variable),
            position = "fill", stat = "identity")
+
+
+
+
+# 휴식 위락 제외
+library(ggplot2)
+library(reshape2)
+setwd("D:/6-project/data/2. 여행목적")
+purpose.nation <- read.csv("여가위락휴식제외-국적별.csv",header=T)
+purpose.gender <- read.csv("여가위락휴식제외-성별.csv",header=T)
+purpose.age <- read.csv("여가위락휴식제외-연령별.csv",header=T)
+purpose.type <- read.csv("여가위락휴식제외-여행형태별.csv",header=T)
+
+
+purpose.nation.df <- melt( purpose.nation[, c("X", "신혼여행", "사업.산업시찰활동",
+                                "학술.세미나활동", "직장인센티브여행", "친구.친지방문",
+                                "뷰티.의료관광", "쇼핑", "기타")], id = "X")
+purpose.gender.df <- melt( purpose.gender[, c("X", "신혼여행", "사업.산업시찰활동",
+                                              "학술.세미나활동", "직장인센티브여행", "친구.친지방문",
+                                              "뷰티.의료관광", "쇼핑", "기타")], id = "X")
+purpose.age.df <- melt( purpose.age[, c("X", "신혼여행", "사업.산업시찰활동",
+                                              "학술.세미나활동", "직장인센티브여행", "친구.친지방문",
+                                              "뷰티.의료관광", "쇼핑", "기타")], id = "X")
+purpose.type.df <- melt( purpose.type[, c("X", "신혼여행", "사업.산업시찰활동",
+                                              "학술.세미나활동", "직장인센티브여행", "친구.친지방문",
+                                              "뷰티.의료관광", "쇼핑", "기타")], id = "X")
+
+ggplot(purpose.nation.df)+
+  geom_bar(aes(x=X, y=value, fill = variable),
+           position = "fill", stat = "identity")
+ggplot(purpose.gender.df)+
+  geom_bar(aes(x=X, y=value, fill = variable),
+           position = "fill", stat = "identity")
+ggplot(purpose.age.df)+
+  geom_bar(aes(x=X, y=value, fill = variable),
+           position = "fill", stat = "identity")
+ggplot(purpose.type.df)+
+  geom_bar(aes(x=X, y=value, fill = variable),
+           position = "fill", stat = "identity")
