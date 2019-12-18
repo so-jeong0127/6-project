@@ -8,29 +8,74 @@ jeju1 <- read.csv("티맵제주01.csv", header = TRUE, stringsAsFactors=FALSE)
 jeju1
 str(jeju1)
 gc <- geocode(enc2utf8(jeju1$지명))
+zd <- geocode(enc2native("한라산"))
 df <- data.frame(names = jeju1$지명,
                  value = jeju1$검색점수,
                  lon = gc$lon,
                  lat = gc$lat)
 
+(zd)
+zd <- as.numeric(zd)
 df[16,]$lon <- 126.659493
 df[16,]$lat <- 33.549456
 df[31,]$lon <- 126.692362
 df[31,]$lat <- 33.549456
 df[25,]$lon <- 126.916167
 df[25,]$lat <- 33.449698
+df
+lonmean <- mean(df2$lon)
+latmean <- mean(df2$lat)
 
-lonmean <- mean(df$lon)
-latmean <- mean(df$lat)
+str(lonmean)
 
-map <- get_googlemap(center = c(lonmean, latmean),
+df2 <- data.frame(df[-12,])
+cen <- c(lonmean,latmean)
+
+map <- get_googlemap(center = zd,
                      maptype = "roadmap",
                      zoom = 10)
 ggmap(map)+
-  geom_point(data = df,
-             mapping = aes(x = df$lon, y= df$lat, size=df$value),
+  geom_point(df2,
+             mapping =  aes(x = df2$lon, y = df2$lat, size = df2$value),
              alpha = 0.5, col = "red")+
-  scale_size_continuous( range = c(1,15))
+  scale_size_continuous( range = c(2,10)) 
+
+
+
+
+#
+register_google( key = 'AIzaSyCr-3JEJ5MoqOVW1qqeZIXM6KsxppbX6MY')
+
+setwd("C:/Users/jinxi/OneDrive/Desktop/191215/3. 검색지역, 행선지, 행선지 선택이유")
+jeju1 <- read.csv("top20.csv", header = TRUE, stringsAsFactors=FALSE)
+jeju1
+str(jeju1)
+gc <- geocode(enc2utf8(jeju1$지역))
+zd <- geocode(enc2native("사려니숲"))
+zd <- as.numeric(zd)
+df2 <- data.frame(names = jeju1$지역,
+                 value = jeju1$점수,
+                 lon = gc$lon,
+                 lat = gc$lat)
+asd <- c(mean(df2$lon), mean(df2$lat))
+
+범위 <- df2$value
+map <- get_googlemap(center = asd,
+                     maptype = "roadmap",
+                     zoom = 10)
+ggmap(map)+
+  geom_point(df2,
+             mapping =  aes(x = df2$lon, y = df2$lat, size = 범위),
+             alpha = 0.5, col = "red")+
+  scale_size_continuous( range = c(2,10)) +
+geom_text(data = df2,
+          aes(
+            x = df2$lon, y = df2$lat
+          ),
+          size = 4,
+          label = df2$name) +
+  ggtitle("제주 관광지 Top 20") +
+  theme(legend.position = "right") # 범례를 top 에 작성해라
 
 
 ## 검색지역-티맵제주2월
