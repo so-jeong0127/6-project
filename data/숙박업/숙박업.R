@@ -1,4 +1,3 @@
-setwd("C:/Users/김성현/Desktop/분석")
 home <- read.csv(file = '제주특별자치도_관광숙박업현황_20190930.csv')
 home
 View(home)
@@ -116,3 +115,18 @@ df6
 map6 <-get_googlemap(center = "한라산", size = c(700, 700), zoom = 10, markers = gc6, maptype = 'roadmap')
 gmap6<-ggmap(map6)
 gmap6
+
+# 서귀포시 휴양 콘도미니엄업
+d2 <- d[30:61,]
+View(d2)
+names8 <- d2[,2]
+addr8 <- d2[,3]
+addr88 <- as.character(addr8)
+
+gc7 <- geocode( enc2utf8(addr88) ) 
+df7 <- data.frame(name = names8, lon = gc7$lon, lat = gc7$lat)
+df7
+
+map7 <-get_googlemap(center = "한라산", size = c(700, 700), zoom = 10, markers = gc7, maptype = 'roadmap')
+gmap7<-ggmap(map7)
+gmap7
